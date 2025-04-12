@@ -10,7 +10,10 @@ X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, test
 
 
 #Train model
-model = RandomForestRegressor(n_estimator=100)
+model = RandomForestRegressor(n_estimators=100)
 model.fit(X_train, y_train)
 
+#Serialize model
+with open("data/model.pkl","wb") as f:
+    pickle.dump(model, f)
 
